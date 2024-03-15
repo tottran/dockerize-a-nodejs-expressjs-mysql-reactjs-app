@@ -5,7 +5,7 @@ const mysql = require("mysql2");
 const cors = require("cors");
 
 let db = mysql.createConnection({
-    host: "localhost",//when dev with local mysql
+    // host: "localhost",//when dev with local mysql
     host: "mysql_srv",//when start with docker mysql
     user: "root",
     password: "root",
@@ -143,11 +143,15 @@ app.delete("/api/remove/:id", (req, res) => {
 app.get("/api/get/:id", (req, res) => {
   const { id } = req.params;
   const sqlGet = "SELECT * from contact_db WHERE id = ?";
-  db.query(sqlGet, id, (err, result) => {
-    if (err)
-      res.send(err);
-    res.send(result);
-  });
+  try {
+    db.query(sqlGet, id, (err, result) => {
+      if (err)
+        res.send(err);
+      result && res.send(result[0]);
+    });
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 app.put("/api/update/:id", (req, res) => {
