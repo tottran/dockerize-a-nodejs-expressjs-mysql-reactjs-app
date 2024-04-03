@@ -25,4 +25,4 @@ https://blog.openreplay.com/authors/joseph-chege/
 
 ### III. Compose up code
 After pull the docker repo run following command to compose the code:
-> docker-compose up --build
+> docker compose up --build
