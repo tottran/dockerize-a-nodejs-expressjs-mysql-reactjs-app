@@ -8,7 +8,7 @@ https://blog.openreplay.com/authors/joseph-chege/
 
 # Note
 - This Project is worked on `MACOSX`
-- The other operating system isn't check yet.
+- The other operating system doesn't check yet.
 
 
 # Instruction
